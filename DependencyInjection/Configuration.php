@@ -1,0 +1,60 @@
+<?php
+
+namespace WhiteOctober\TCPDFBundle\DependencyInjection;
+
+use Symfony\Component\Config\Definition\Builder\TreeBuilder;
+use Symfony\Component\Config\Definition\ConfigurationInterface;
+
+class Configuration implements ConfigurationInterface
+{
+    /**
+     * Builds our configuration
+     *
+     * @return \Symfony\Component\Config\Definition\Builder\TreeBuilder
+     */
+    public function getConfigTreeBuilder()
+    {
+        $treeBuilder = new TreeBuilder();
+        $rootNode = $treeBuilder->root('whiteoctober_tcpdf');
+
+        $rootNode
+            ->children()
+                ->scalarNode('k_path_url')->defaultValue('%kernel.root_dir%/vendor/tcpdf/')->end()
+                ->scalarNode('k_path_fonts')->defaultValue('%kernel.root_dir%/vendor/tcpdf/fonts/')->end()
+                ->scalarNode('k_path_cache')->defaultValue('%kernel.cache_dir%/')->end()
+                ->scalarNode('k_path_url_cache')->defaultValue('%kernel.cache_dir%/')->end()
+                ->scalarNode('k_path_images')->defaultValue('%kernel.root_dir%/vendor/tcpdf/images/')->end()
+                ->scalarNode('k_blank_image')->defaultValue('%kernel.root_dir%/vendor/tcpdf/images/_blank.png')->end()
+                ->scalarNode('pdf_page_format')->defaultValue('A4')->end()
+                ->scalarNode('pdf_page_orientation')->defaultValue('P')->end()
+                ->scalarNode('pdf_creator')->defaultValue('TCPDF')->end()
+                ->scalarNode('pdf_author')->defaultValue('TCPDF')->end()
+                ->scalarNode('pdf_header_title')->defaultValue('')->end()
+                ->scalarNode('pdf_header_string')->defaultValue('')->end()
+                ->scalarNode('pdf_header_logo')->defaultValue('')->end()
+                ->scalarNode('pdf_header_logo_width')->defaultValue('')->end()
+                ->scalarNode('pdf_unit')->defaultValue('mm')->end()
+                ->scalarNode('pdf_margin_header')->defaultValue(5)->end()
+                ->scalarNode('pdf_margin_footer')->defaultValue(10)->end()
+                ->scalarNode('pdf_margin_top')->defaultValue(27)->end()
+                ->scalarNode('pdf_margin_bottom')->defaultValue(25)->end()
+                ->scalarNode('pdf_margin_left')->defaultValue(15)->end()
+                ->scalarNode('pdf_margin_right')->defaultValue(15)->end()
+                ->scalarNode('pdf_font_name_main')->defaultValue('helvetica')->end()
+                ->scalarNode('pdf_font_size_main')->defaultValue(10)->end()
+                ->scalarNode('pdf_font_name_data')->defaultValue('helvetica')->end()
+                ->scalarNode('pdf_font_size_data')->defaultValue(8)->end()
+                ->scalarNode('pdf_font_monospaced')->defaultValue('courier')->end()
+                ->scalarNode('pdf_image_scale_ratio')->defaultValue(1.25)->end()
+                ->scalarNode('head_magnification')->defaultValue(1.1)->end()
+                ->scalarNode('k_cell_height_ratio')->defaultValue(1.25)->end()
+                ->scalarNode('k_title_magnification')->defaultValue(1.3)->end()
+                ->scalarNode('k_small_ratio')->defaultValue(2/3)->end()
+                ->scalarNode('k_thai_topchars')->defaultTrue()->end()
+                ->scalarNode('k_tcpdf_calls_in_html')->defaultFalse()->end()
+            ->end()
+        ;
+
+        return $treeBuilder;
+    }
+}
