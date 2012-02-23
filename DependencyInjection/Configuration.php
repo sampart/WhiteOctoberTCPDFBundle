@@ -19,12 +19,12 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
-                ->scalarNode('k_path_url')->defaultValue('%kernel.root_dir%/vendor/tcpdf/')->end()
-                ->scalarNode('k_path_fonts')->defaultValue('%kernel.root_dir%/vendor/tcpdf/fonts/')->end()
-                ->scalarNode('k_path_cache')->defaultValue('%kernel.cache_dir%/')->end()
-                ->scalarNode('k_path_url_cache')->defaultValue('%kernel.cache_dir%/')->end()
-                ->scalarNode('k_path_images')->defaultValue('%kernel.root_dir%/vendor/tcpdf/images/')->end()
-                ->scalarNode('k_blank_image')->defaultValue('%kernel.root_dir%/vendor/tcpdf/images/_blank.png')->end()
+                ->scalarNode('k_path_url')->defaultValue('%kernel.root_dir%/../vendor/tcpdf/')->end()
+                ->scalarNode('k_path_fonts')->defaultValue('%kernel.root_dir%/../vendor/tcpdf/fonts/')->end()
+                ->scalarNode('k_path_cache')->defaultValue('%kernel.cache_dir%/tcpdf')->end()
+                ->scalarNode('k_path_url_cache')->defaultValue('%kernel.cache_dir%/tcpdf')->end()
+                ->scalarNode('k_path_images')->defaultValue('%kernel.root_dir%/../vendor/tcpdf/images/')->end()
+                ->scalarNode('k_blank_image')->defaultValue('%kernel.root_dir%/../vendor/tcpdf/images/_blank.png')->end()
                 ->scalarNode('pdf_page_format')->defaultValue('A4')->end()
                 ->scalarNode('pdf_page_orientation')->defaultValue('P')->end()
                 ->scalarNode('pdf_creator')->defaultValue('TCPDF')->end()
