@@ -28,5 +28,14 @@ class WhiteOctoberTCPDFExtension extends Extension
         $processor = new Processor();
         $configuration = new Configuration();
         $config = $processor->processConfiguration($configuration, $configs);
+
+        // TCPDF needs these constants defining
+        foreach ($config as $k => $v)
+        {
+            define(strtoupper($k), $container->getParameterBag()->resolveValue($v));
+        }
+
+        // and the final one so that TCPDF uses our config and not the .php file one
+        define('K_TCPDF_EXTERNAL_CONFIG', true);
     }
 }
