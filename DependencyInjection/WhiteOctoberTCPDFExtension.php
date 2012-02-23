@@ -22,20 +22,14 @@ class WhiteOctoberTCPDFExtension extends Extension
      */
     public function load(array $configs, ContainerBuilder $container)
     {
-        $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-        //$loader->load('services.xml');
-
         $processor = new Processor();
         $configuration = new Configuration();
         $config = $processor->processConfiguration($configuration, $configs);
 
-        // TCPDF needs these constants defining
-        foreach ($config as $k => $v)
-        {
-            define(strtoupper($k), $container->getParameterBag()->resolveValue($v));
-        }
+        $container->setParameter('white_october_tcpdf.file', $config['file']);
+        $container->setParameter('white_october_tcpdf.tcpdf', $config['tcpdf']);
 
-        // and the final one so that TCPDF uses our config and not the .php file one
-        define('K_TCPDF_EXTERNAL_CONFIG', true);
+        $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader->load('services.xml');
     }
 }
