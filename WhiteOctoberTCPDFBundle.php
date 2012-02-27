@@ -23,16 +23,21 @@ class WhiteOctoberTCPDFBundle extends Bundle
         {
             foreach ($config as $k => $v)
             {
+                $constKey = strtoupper($k);
+
                 // All K_ constants are required
                 if (preg_match("/^k_/i", $k))
                 {
-                    define(strtoupper($k), $this->container->getParameterBag()->resolveValue($v));
+                    if (!defined($constKey))
+                    {
+                        define($constKey, $this->container->getParameterBag()->resolveValue($v));
+                    }
                 }
 
                 // and one special value which TCPDF will use if present
-                if (strtolower($k) == "pdf_font_name_main")
+                if (strtolower($k) == "pdf_font_name_main" && !defined($constKey))
                 {
-                    define(strtoupper($k), $v);
+                    define($constKey, $v);
                 }
             }
         }
