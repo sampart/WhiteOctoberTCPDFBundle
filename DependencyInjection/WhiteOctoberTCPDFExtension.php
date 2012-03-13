@@ -27,6 +27,7 @@ class WhiteOctoberTCPDFExtension extends Extension
         $config = $processor->processConfiguration($configuration, $configs);
 
         $container->setParameter('white_october_tcpdf.file', $config['file']);
+        $container->setParameter('white_october_tcpdf.class', $config['class']);
         $container->setParameter('white_october_tcpdf.tcpdf', $config['tcpdf']);
 
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));

@@ -8,6 +8,7 @@
         <!-- TCPDF service -->
         <service id="white_october.tcpdf" class="WhiteOctober\TCPDFBundle\Controller\TCPDFController">
             <file>%white_october_tcpdf.file%</file>
+            <argument>%white_october_tcpdf.class%</argument>
         </service>
 
     </services>
