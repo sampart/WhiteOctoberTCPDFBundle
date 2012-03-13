@@ -66,3 +66,18 @@ $pdfObj = $container->get("white_october.tcpdf")->create();
 ```
 
 From hereon in, you are using a TCPDF object to work with as normal.
+
+Using a custom class
+--------------------
+
+If you want to use your own custom TCPDF-based class, you can use
+the `class` parameter in your configuration eg in `config.yml`:
+
+``` yaml
+white_october_tcpdf:
+    class: 'Acme\MyBundle\MyTCPDFClass'
+```
+
+The class must extend from the `TCPDF` class; an exception will be
+thrown if this is not the case.
+
