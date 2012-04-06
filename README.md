@@ -10,7 +10,7 @@ Installation
 ### Step 1: Add both the bundle and TCPDF to your `deps` file
 ```
 [WhiteOctoberTCPDFBundle]
-    git=http://github.com/WhiteOctober/WhiteOctoberTCPDFBundle.git
+    git=http://github.com/whiteoctober/WhiteOctoberTCPDFBundle.git
     target=/bundles/WhiteOctober/TCPDFBundle
 
 [TCPDF]
