@@ -46,6 +46,7 @@ class Configuration implements ConfigurationInterface
                         // Core configuration values
                         // These get defined when the TCPDF bundle is booted
                         ->scalarNode('k_path_url')->defaultValue('%kernel.root_dir%/../vendor/tcpdf/')->end()
+                        ->scalarNode('k_path_main')->defaultValue('%kernel.root_dir%/../vendor/tcpdf/')->end()
                         ->scalarNode('k_path_fonts')->defaultValue('%kernel.root_dir%/../vendor/tcpdf/fonts/')->end()
                         ->scalarNode('k_path_cache')->defaultValue('%kernel.cache_dir%/tcpdf')->end()
                         ->scalarNode('k_path_url_cache')->defaultValue('%kernel.cache_dir%/tcpdf')->end()
