@@ -18,9 +18,12 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('white_october_tcpdf');
 
+        if (!defined('K_TCPDF_EXTERNAL_CONFIG'))
+            define('K_TCPDF_EXTERNAL_CONFIG', true);
+
         $rootNode
             ->children()
-                ->scalarNode('file')->defaultValue('%kernel.root_dir%/../vendor/tcpdf/tcpdf.php')->end()
+                ->scalarNode('file')->defaultValue('%kernel.root_dir%/../vendor/tcpdf/tcpdf/tcpdf.php')->end()
                 ->scalarNode('class')->defaultValue('TCPDF')->end()
             ->end()
         ;
@@ -45,13 +48,13 @@ class Configuration implements ConfigurationInterface
 
                         // Core configuration values
                         // These get defined when the TCPDF bundle is booted
-                        ->scalarNode('k_path_url')->defaultValue('%kernel.root_dir%/../vendor/tcpdf/')->end()
-                        ->scalarNode('k_path_main')->defaultValue('%kernel.root_dir%/../vendor/tcpdf/')->end()
-                        ->scalarNode('k_path_fonts')->defaultValue('%kernel.root_dir%/../vendor/tcpdf/fonts/')->end()
+                        ->scalarNode('k_path_url')->defaultValue('%kernel.root_dir%/../vendor/tcpdf/tcpdf/')->end()
+                        ->scalarNode('k_path_main')->defaultValue('%kernel.root_dir%/../vendor/tcpdf/tcpdf/')->end()
+                        ->scalarNode('k_path_fonts')->defaultValue('%kernel.root_dir%/../vendor/tcpdf/tcpdf/fonts/')->end()
                         ->scalarNode('k_path_cache')->defaultValue('%kernel.cache_dir%/tcpdf')->end()
                         ->scalarNode('k_path_url_cache')->defaultValue('%kernel.cache_dir%/tcpdf')->end()
-                        ->scalarNode('k_path_images')->defaultValue('%kernel.root_dir%/../vendor/tcpdf/images/')->end()
-                        ->scalarNode('k_blank_image')->defaultValue('%kernel.root_dir%/../vendor/tcpdf/images/_blank.png')->end()
+                        ->scalarNode('k_path_images')->defaultValue('%kernel.root_dir%/../vendor/tcpdf/tcpdf/images/')->end()
+                        ->scalarNode('k_blank_image')->defaultValue('%kernel.root_dir%/../vendor/tcpdf/tcpdf/images/_blank.png')->end()
                         ->scalarNode('k_cell_height_ratio')->defaultValue(1.25)->end()
                         ->scalarNode('k_title_magnification')->defaultValue(1.3)->end()
                         ->scalarNode('k_small_ratio')->defaultValue(2/3)->end()
