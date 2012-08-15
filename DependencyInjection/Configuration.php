@@ -20,7 +20,7 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
-                ->scalarNode('file')->defaultValue('%kernel.root_dir%/../vendor/tcpdf/tcpdf.php')->end()
+                ->scalarNode('file')->defaultValue('%kernel.root_dir%/../vendor/tcpdf/tcpdf/tcpdf.php')->end()
                 ->scalarNode('class')->defaultValue('TCPDF')->end()
             ->end()
         ;
