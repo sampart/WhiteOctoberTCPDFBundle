@@ -18,6 +18,9 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('white_october_tcpdf');
 
+        if (!defined('K_TCPDF_EXTERNAL_CONFIG'))
+            define('K_TCPDF_EXTERNAL_CONFIG', true);
+
         $rootNode
             ->children()
                 ->scalarNode('file')->defaultValue('%kernel.root_dir%/../vendor/tcpdf/tcpdf/tcpdf.php')->end()
