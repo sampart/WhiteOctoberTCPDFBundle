@@ -16,11 +16,11 @@
             "package": {
                 "name": "tcpdf",
                 "version": "dev-master",
-                "source": {
-                    "type": "git",
-                    "url": "git://tcpdf.git.sourceforge.net/gitroot/tcpdf/tcpdf",
-                    "reference": "master"
+                "dist": {
+                    "url": "http://sourceforge.net/projects/tcpdf/files/latest/download?source=files",
+                    "type": "zip"
                 }
+
             }
         }
     ],
