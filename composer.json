@@ -10,28 +10,13 @@
             "email": "rich.sage@gmail.com"
         }
     ],
-    "repositories": [
-        {
-            "type": "package",
-            "package": {
-                "name": "tcpdf",
-                "version": "dev-master",
-                "dist": {
-                    "url": "http://sourceforge.net/projects/tcpdf/files/latest/download?source=files",
-                    "type": "zip"
-                }
-
-            }
-        }
-    ],
     "require": {
         "php": ">=5.3.2",
-        "symfony/framework-bundle": "2.0.*",
-        "tcpdf": "dev-master"
+        "symfony/framework-bundle": ">=2.0",
+        "tecnick.com/tcpdf": "*"
     },
     "autoload": {
-        "psr-0": { "WhiteOctober\\TCPDFBundle": "" },
-        "classmap": ["vendor/tcpdf"]
+        "psr-0": { "WhiteOctober\\TCPDFBundle": "" }
     },
     "target-dir": "WhiteOctober/TCPDFBundle"
 }
