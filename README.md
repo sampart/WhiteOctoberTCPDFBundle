@@ -81,3 +81,10 @@ white_october_tcpdf:
 The class must extend from the `TCPDF` class; an exception will be
 thrown if this is not the case.
 
+License
+-------
+
+This bundle is under the MIT license. See the complete license in the bundle:
+
+    Resources/meta/LICENSE
+
