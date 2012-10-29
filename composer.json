@@ -4,6 +4,7 @@
     "description": "A bundle to easily integrate TCPDF into Symfony2",
     "keywords": ["pdf", "tcpdf"],
     "homepage": "https://github.com/whiteoctober/WhiteOctoberTCPDFBundle",
+    "license": "MIT",
     "authors": [
         {
             "name": "Rich Sage",
