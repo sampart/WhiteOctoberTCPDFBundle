@@ -81,6 +81,15 @@ white_october_tcpdf:
 The class must extend from the `TCPDF` class; an exception will be
 thrown if this is not the case.
 
+Troubleshooting
+--------------------
+If you get an error like ```'TCPDF ERROR: Can't open image file: /tmp/jpg_i6Sogv'``` please 
+check if there is a ```tcpdf``` folder in your ```app/cache/YOUR_ENV/``` folder, instead 
+TCPDF try to write to ```sys_get_temp_dir()```.
+
+Please note that the folder will be deleted on an ```app/console cache:clear```.
+
+
 License
 -------
 
