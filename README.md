@@ -15,7 +15,7 @@ Installation
 
 [TCPDF]
     git=git://tcpdf.git.sourceforge.net/gitroot/tcpdf/tcpdf
-    target=/tcpdf
+    target=/tecnick.com/tcpdf
 ```
 
 Now run the vendors script to download the bundle and library:
