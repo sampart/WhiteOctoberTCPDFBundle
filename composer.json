@@ -1,9 +1,9 @@
 {
-    "name": "whiteoctober/tcpdf-bundle",
+    "name": "brucefletcher/tcpdf-bundle",
     "type": "symfony-bundle",
     "description": "A bundle to easily integrate TCPDF into Symfony2",
     "keywords": ["pdf", "tcpdf"],
-    "homepage": "https://github.com/whiteoctober/WhiteOctoberTCPDFBundle",
+    "homepage": "https://github.com/BruceFletcher/WhiteOctoberTCPDFBundle",
     "license": "MIT",
     "authors": [
         {
