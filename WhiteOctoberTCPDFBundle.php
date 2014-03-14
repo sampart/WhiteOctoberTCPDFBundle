@@ -3,6 +3,7 @@
 namespace WhiteOctober\TCPDFBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
+use Symfony\Component\Filesystem\Filesystem;
 
 class WhiteOctoberTCPDFBundle extends Bundle
 {
@@ -30,7 +31,13 @@ class WhiteOctoberTCPDFBundle extends Bundle
                 {
                     if (!defined($constKey))
                     {
-                        define($constKey, $this->container->getParameterBag()->resolveValue($v));
+                        $value = $this->container->getParameterBag()->resolveValue($v);
+
+                        if (($k === 'k_path_cache' || $k === 'k_path_url_cache') && !is_dir($value)) {
+                            $this->createDir($value);
+                        }
+
+                        define($constKey, $value);
                     }
                 }
 
@@ -40,6 +47,23 @@ class WhiteOctoberTCPDFBundle extends Bundle
                     define($constKey, $v);
                 }
             }
+        }
+    }
+
+    /**
+     * Create a directory
+     *
+     * @param string $filePath
+     *
+     * @throws \RuntimeException
+     */
+    private function createDir($filePath)
+    {
+        $filesystem = new Filesystem();
+        if (false === $filesystem->mkdir($filePath)) {
+            throw new \RuntimeException(sprintf(
+                'Could not create directory %s', $filePath
+            ));
         }
     }
 }
