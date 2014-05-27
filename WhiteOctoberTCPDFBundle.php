@@ -13,6 +13,10 @@ class WhiteOctoberTCPDFBundle extends Bundle
      */
     public function boot()
     {
+        if (!$this->container->hasParameter('white_october_tcpdf.tcpdf')) {
+            return;
+        }
+
         // Define our TCPDF variables
         $config = $this->container->getParameter('white_october_tcpdf.tcpdf');
 
