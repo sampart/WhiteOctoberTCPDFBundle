@@ -17,13 +17,10 @@ composer require whiteoctober/tcpdf-bundle
 Add the `WhiteOctober` namespace to your autoloader:
 
 ``` php
-<?php
 // app/autoload.php
-
-$loader->registerNamespaces(array(
-    // ...
-    'WhiteOctober' => __DIR__.'/../vendor/bundles',
-));
+<?php
+// ...
+$loader->add('WhiteOctober', __DIR__.'/../vendor/bundles');
 ```
 
 ### Step 3: Enable the bundle in the kernel
@@ -31,8 +28,8 @@ $loader->registerNamespaces(array(
 Add the bundle to the `registerBundles()` method in your kernel:
 
 ``` php
-<?php
 // app/AppKernel.php
+<?php
 
 public function registerBundles()
 {
