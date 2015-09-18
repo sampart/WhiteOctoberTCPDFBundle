@@ -20,7 +20,7 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
-                ->scalarNode('file')->defaultValue('%kernel.root_dir%/../vendor/tecnick.com/tcpdf/tcpdf.php')->end()
+                ->scalarNode('file')->defaultValue('%kernel.root_dir%/../vendor/tecnickcom/tcpdf/tcpdf.php')->end()
                 ->scalarNode('class')->defaultValue('TCPDF')->end()
             ->end()
         ;
@@ -45,13 +45,13 @@ class Configuration implements ConfigurationInterface
 
                         // Core configuration values
                         // These get defined when the TCPDF bundle is booted
-                        ->scalarNode('k_path_url')->defaultValue('%kernel.root_dir%/../vendor/tecnick.com/tcpdf/')->end()
-                        ->scalarNode('k_path_main')->defaultValue('%kernel.root_dir%/../vendor/tecnick.com/tcpdf/')->end()
-                        ->scalarNode('k_path_fonts')->defaultValue('%kernel.root_dir%/../vendor/tecnick.com/tcpdf/fonts/')->end()
+                        ->scalarNode('k_path_url')->defaultValue('%kernel.root_dir%/../vendor/tecnickcom/tcpdf/')->end()
+                        ->scalarNode('k_path_main')->defaultValue('%kernel.root_dir%/../vendor/tecnickcom/tcpdf/')->end()
+                        ->scalarNode('k_path_fonts')->defaultValue('%kernel.root_dir%/../vendor/tecnickcom/tcpdf/fonts/')->end()
                         ->scalarNode('k_path_cache')->defaultValue('%kernel.cache_dir%/tcpdf')->end()
                         ->scalarNode('k_path_url_cache')->defaultValue('%kernel.cache_dir%/tcpdf')->end()
-                        ->scalarNode('k_path_images')->defaultValue('%kernel.root_dir%/../vendor/tecnick.com/tcpdf/examples/images/')->end()
-                        ->scalarNode('k_blank_image')->defaultValue('%kernel.root_dir%/../vendor/tecnick.com/tcpdf/examples/images/_blank.png')->end()
+                        ->scalarNode('k_path_images')->defaultValue('%kernel.root_dir%/../vendor/tecnickcom/tcpdf/examples/images/')->end()
+                        ->scalarNode('k_blank_image')->defaultValue('%kernel.root_dir%/../vendor/tecnickcom/tcpdf/examples/images/_blank.png')->end()
                         ->scalarNode('k_cell_height_ratio')->defaultValue(1.25)->end()
                         ->scalarNode('k_title_magnification')->defaultValue(1.3)->end()
                         ->scalarNode('k_small_ratio')->defaultValue(2/3)->end()
