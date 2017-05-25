@@ -41,6 +41,10 @@ class WhiteOctoberTCPDFBundle extends Bundle
                             $this->createDir($value);
                         }
 
+                        if(in_array($constKey, ['K_PATH_URL','K_PATH_MAIN','K_PATH_FONTS','K_PATH_CACHE','K_PATH_URL_CACHE','K_PATH_IMAGES'])) {
+                            $value .= (substr($value, -1) == '/' ? '' : '/');
+                        }
+
                         define($constKey, $value);
                     }
                 }
