@@ -16,6 +16,8 @@ composer require whiteoctober/tcpdf-bundle
 
 Add the bundle to the `registerBundles()` method in your kernel:
 
+In Symfony < 4:
+
 ``` php
 // app/AppKernel.php
 <?php
@@ -28,6 +30,19 @@ public function registerBundles()
     );
 }
 ```
+
+In Symfony 4:
+
+```php
+// config/bundles.php
+return [
+    // ...
+    WhiteOctober\TCPDFBundle\WhiteOctoberTCPDFBundle::class => ['all' => true],
+    // ...
+];
+```
+
+(This project is not yet configured with Symfony Flex, so this change to `config/bundles.php` won't be done automatically.)
 
 Using TCPDF
 -----------
