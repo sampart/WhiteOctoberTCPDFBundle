@@ -44,6 +44,19 @@ return [
 
 (This project is not yet configured with Symfony Flex, so this change to `config/bundles.php` won't be done automatically.)
 
+If you want to do service autowiring, you'll need to add an alias for the service:
+
+```yaml
+# app/config/services.yml (Symfony 3)
+# config/services.yaml (Symfony 4)
+services:
+    # ...
+
+    # the `white_october.tcpdf` service will be injected when a
+    # `WhiteOctober\TCPDFBundle\Controller\TCPDFController` type-hint is detected
+    WhiteOctober\TCPDFBundle\Controller\TCPDFController: '@white_october.tcpdf'
+``` 
+
 Using TCPDF
 -----------
 
