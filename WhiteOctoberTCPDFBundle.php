@@ -29,14 +29,15 @@ class WhiteOctoberTCPDFBundle extends Bundle
             foreach ($config as $k => $v)
             {
                 $constKey = strtoupper($k);
-
-                // All K_ constants are required
-                if (preg_match("/^k_/i", $k))
+                
+                if (!defined($constKey))
                 {
-                    if (!defined($constKey))
-                    {
-                        $value = $this->container->getParameterBag()->resolveValue($v);
-
+                	$value = $this->container->getParameterBag()->resolveValue($v);
+                	
+                	// All K_ constants are required
+                	if (preg_match("/^k_/i", $k))
+                	{
+                    	
                         if (($k === 'k_path_cache' || $k === 'k_path_url_cache') && !is_dir($value)) {
                             $this->createDir($value);
                         }
@@ -45,14 +46,8 @@ class WhiteOctoberTCPDFBundle extends Bundle
                             $value .= (substr($value, -1) == '/' ? '' : '/');
                         }
 
-                        define($constKey, $value);
                     }
-                }
-
-                // and one special value which TCPDF will use if present
-                if (strtolower($k) == "pdf_font_name_main" && !defined($constKey))
-                {
-                    define($constKey, $v);
+                    define($constKey, $value);
                 }
             }
         }
