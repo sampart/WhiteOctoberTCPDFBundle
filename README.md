@@ -69,13 +69,40 @@ $pdfObj = $container->get("white_october.tcpdf")->create();
 
 From hereon in, you are using a TCPDF object to work with as normal.
 
-Using a custom class
---------------------
+Configuration
+--------------
+
+### Configuration values
+
+You can pass parameters to TCPDF like this:
+
+```yaml
+# app/config/config.yml (Symfony < 4)
+# config/packages/white_october_tcpdf.yaml (Symfony 4)
+white_october_tcpdf:
+    tcpdf:
+        k_title_magnification: 2
+```
+
+You can see the default parameter values in
+`WhiteOctober\TCPDFBundle\DependencyInjection\Configuration::addTCPDFConfig`.
+
+If you want, you can use TCPDF's own defaults instead:
+
+```yaml
+white_october_tcpdf:
+    tcpdf:
+        k_tcpdf_external_config: false  # the values set by this bundle will be ignored 
+```
+
+### Using a custom class
 
 If you want to use your own custom TCPDF-based class, you can use
-the `class` parameter in your configuration eg in `config.yml`:
+the `class` parameter in your configuration:
 
-``` yaml
+```yaml
+# app/config/config.yml (Symfony < 4)
+# config/packages/white_october_tcpdf.yaml (Symfony 4)
 white_october_tcpdf:
     class: 'Acme\MyBundle\MyTCPDFClass'
 ```
