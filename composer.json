@@ -17,7 +17,6 @@
         "tecnickcom/tcpdf": "*"
     },
     "autoload": {
-        "psr-0": { "WhiteOctober\\TCPDFBundle": "" }
+        "psr-4": { "WhiteOctober\\TCPDFBundle\\": "" }
     },
-    "target-dir": "WhiteOctober/TCPDFBundle"
 }
