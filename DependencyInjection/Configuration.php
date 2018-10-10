@@ -57,6 +57,7 @@ class Configuration implements ConfigurationInterface
                         ->scalarNode('k_small_ratio')->defaultValue(2/3)->end()
                         ->scalarNode('k_thai_topchars')->defaultTrue()->end()
                         ->scalarNode('k_tcpdf_calls_in_html')->defaultFalse()->end()
+                        ->scalarNode('k_tcpdf_external_config')->defaultTrue()->end()
                         ->scalarNode('k_tcpdf_throw_exception_error')->defaultTrue()->end()
 
                         // Optional nice-to-have values
