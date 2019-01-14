@@ -15,8 +15,13 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('white_october_tcpdf');
+        $treeBuilder = new TreeBuilder('white_october_tcpdf');
+
+        if (method_exists($treeBuilder, 'getRootNode')) {
+            $rootNode = $treeBuilder->getRootNode()->children();
+        } else {
+            $rootNode = $treeBuilder->root('white_october_tcpdf');
+        }
 
         $rootNode
             ->children()
