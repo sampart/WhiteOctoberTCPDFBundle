@@ -12,6 +12,22 @@ Installation
 composer require whiteoctober/tcpdf-bundle
 ```
 
+#### Version constraining (optional)
+
+By default, this bundle does not constrain the version of TCPDF that composer installs.
+([An explanation of this unusual decision is here](https://github.com/whiteoctober/WhiteOctoberTCPDFBundle/issues/53)).
+This means that a `composer update` could update to a new major version of TCPDF.
+Since this bundle is only a thin wrapper around TCPDF, you can normally do such an upgrade without issue.
+
+However, if you do wish to constrain the TCPDF version, find out what version you currently have installed with:
+
+```bash
+composer show tecnickcom/tcpdf
+```
+
+And amend your project's `composer.json` to add a TCPDF version constraint in the `requires` section.
+For example, if TCPDF version `6.2.17` was installed, `"tecnickcom/tcpdf": "^6.2.17"` will allow anything < 7 when upgrading. 
+
 ### Step 2: Enable the bundle in the kernel
 
 Add the bundle to the `registerBundles()` method in your kernel:
