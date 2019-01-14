@@ -18,7 +18,7 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder('white_october_tcpdf');
 
         if (method_exists($treeBuilder, 'getRootNode')) {
-            $rootNode = $treeBuilder->getRootNode()->children();
+            $rootNode = $treeBuilder->getRootNode();
         } else {
             $rootNode = $treeBuilder->root('white_october_tcpdf');
         }
