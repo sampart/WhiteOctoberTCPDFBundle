@@ -1,11 +1,12 @@
 <?php
 
-namespace WhiteOctober\TCPDFBundle;
+namespace Qipsius\TCPDFBundle;
 
+use RuntimeException;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\Filesystem\Filesystem;
 
-class WhiteOctoberTCPDFBundle extends Bundle
+class QipsiusTCPDFBundle extends Bundle
 {
     /**
      * Ran on bundle boot, our TCPDF configuration constants
@@ -13,12 +14,12 @@ class WhiteOctoberTCPDFBundle extends Bundle
      */
     public function boot()
     {
-        if (!$this->container->hasParameter('white_october_tcpdf.tcpdf')) {
+        if (!$this->container->hasParameter('qipsius_tcpdf.tcpdf')) {
             return;
         }
 
         // Define our TCPDF variables
-        $config = $this->container->getParameter('white_october_tcpdf.tcpdf');
+        $config = $this->container->getParameter('qipsius_tcpdf.tcpdf');
 
         // TCPDF needs some constants defining if our configuration
         // determines we should do so (default true)
@@ -29,21 +30,21 @@ class WhiteOctoberTCPDFBundle extends Bundle
             foreach ($config as $k => $v)
             {
                 $constKey = strtoupper($k);
-                
+
                 if (!defined($constKey))
                 {
                 	$value = $this->container->getParameterBag()->resolveValue($v);
-                	
+
                 	// All K_ constants are required
-                	if (preg_match("/^k_/i", $k))
+                	if (0 === stripos($k, 'k_'))
                 	{
-                    	
+
                         if (($k === 'k_path_cache' || $k === 'k_path_url_cache') && !is_dir($value)) {
                             $this->createDir($value);
                         }
 
                         if(in_array($constKey, ['K_PATH_URL','K_PATH_MAIN','K_PATH_FONTS','K_PATH_CACHE','K_PATH_URL_CACHE','K_PATH_IMAGES'])) {
-                            $value .= (substr($value, -1) == '/' ? '' : '/');
+                            $value .= (substr($value, -1) === '/' ? '' : '/');
                         }
 
                     }
@@ -58,13 +59,13 @@ class WhiteOctoberTCPDFBundle extends Bundle
      *
      * @param string $filePath
      *
-     * @throws \RuntimeException
+     * @throws RuntimeException
      */
-    private function createDir($filePath)
+    private function createDir($filePath): void
     {
         $filesystem = new Filesystem();
         if (false === $filesystem->mkdir($filePath)) {
-            throw new \RuntimeException(sprintf(
+            throw new RuntimeException(sprintf(
                 'Could not create directory %s', $filePath
             ));
         }

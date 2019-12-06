@@ -6,9 +6,9 @@
     <services>
 
         <!-- TCPDF service -->
-        <service id="white_october.tcpdf" class="WhiteOctober\TCPDFBundle\Controller\TCPDFController">
-            <file>%white_october_tcpdf.file%</file>
-            <argument>%white_october_tcpdf.class%</argument>
+        <service id="qipsius.tcpdf" class="Qipsius\TCPDFBundle\Controller\TCPDFController">
+            <file>%qipsius_tcpdf.file%</file>
+            <argument>%qipsius_tcpdf.class%</argument>
         </service>
 
     </services>

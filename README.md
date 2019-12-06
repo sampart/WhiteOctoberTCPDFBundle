@@ -1,17 +1,15 @@
-_This project is looking for maintainers - [details here](https://github.com/whiteoctober/WhiteOctoberTCPDFBundle/issues/57)._
-
-WhiteOctoberTCPDFBundle
+QipsiusTCPDFBundle
 =======================
 
-This bundle facilitates easy use of the TCPDF PDF generation library in
-Symfony2 applications.
+This bundle is a fork of [WhiteOctoberTCPDFBundle](https://github.com/whiteoctober/WhiteOctoberTCPDFBundle)
+This bundle facilitates easy use of the TCPDF PDF generation library in Symfony >= 3.4 applications.
 
 Installation
 ------------
 
 ### Step 1: Setup Bundle and dependencies
 ```
-composer require whiteoctober/tcpdf-bundle
+composer require qipsius/tcpdf-bundle
 ```
 
 #### Version constraining (optional)
@@ -44,7 +42,7 @@ public function registerBundles()
 {
     $bundles = array(
         // ...
-        new WhiteOctober\TCPDFBundle\WhiteOctoberTCPDFBundle(),
+        new Qipsius\TCPDFBundle\QipsiusTCPDFBundle(),
     );
 }
 ```
@@ -55,7 +53,7 @@ In Symfony 4:
 // config/bundles.php
 return [
     // ...
-    WhiteOctober\TCPDFBundle\WhiteOctoberTCPDFBundle::class => ['all' => true],
+    Qipsius\TCPDFBundle\QipsiusTCPDFBundle::class => ['all' => true],
     // ...
 ];
 ```
@@ -70,19 +68,19 @@ If you want to do service autowiring, you'll need to add an alias for the servic
 services:
     # ...
 
-    # the `white_october.tcpdf` service will be injected when a
-    # `WhiteOctober\TCPDFBundle\Controller\TCPDFController` type-hint is detected
-    WhiteOctober\TCPDFBundle\Controller\TCPDFController: '@white_october.tcpdf'
+    # the `qipsius.tcpdf` service will be injected when a
+    # `Qipsius\TCPDFBundle\Controller\TCPDFController` type-hint is detected
+    Qipsius\TCPDFBundle\Controller\TCPDFController: '@qipsius.tcpdf'
 ``` 
 
 Using TCPDF
 -----------
 
-You can obtain the `white_october.tcpdf` service from the container,
+You can obtain the `qipsius.tcpdf` service from the container,
 and then create a new TCPDF object via the service:
 
 ``` php
-$pdfObj = $container->get("white_october.tcpdf")->create();
+$pdfObj = $container->get("qipsius.tcpdf")->create();
 ```
 
 From hereon in, you are using a TCPDF object to work with as normal.
@@ -96,19 +94,19 @@ You can pass parameters to TCPDF like this:
 
 ```yaml
 # app/config/config.yml (Symfony < 4)
-# config/packages/white_october_tcpdf.yaml (Symfony 4)
-white_october_tcpdf:
+# config/packages/qipsius_tcpdf.yaml (Symfony 4)
+qipsius_tcpdf:
     tcpdf:
         k_title_magnification: 2
 ```
 
 You can see the default parameter values in
-`WhiteOctober\TCPDFBundle\DependencyInjection\Configuration::addTCPDFConfig`.
+`Qipsius\TCPDFBundle\DependencyInjection\Configuration::addTCPDFConfig`.
 
 If you want, you can use TCPDF's own defaults instead:
 
 ```yaml
-white_october_tcpdf:
+qipsius_tcpdf:
     tcpdf:
         k_tcpdf_external_config: false  # the values set by this bundle will be ignored 
 ```
@@ -120,8 +118,8 @@ the `class` parameter in your configuration:
 
 ```yaml
 # app/config/config.yml (Symfony < 4)
-# config/packages/white_october_tcpdf.yaml (Symfony 4)
-white_october_tcpdf:
+# config/packages/qipsius_tcpdf.yaml (Symfony 4)
+qipsius_tcpdf:
     class: 'Acme\MyBundle\MyTCPDFClass'
 ```
 
@@ -140,7 +138,7 @@ Contributing
 
 We welcome contributions to this project, including pull requests and issues (and discussions on existing issues).
 
-If you'd like to contribute code but aren't sure what, the [issues list](https://github.com/whiteoctober/WhiteOctoberTCPDFBundle/issues) is a good place to start.
+If you'd like to contribute code but aren't sure what, the [issues list](https://github.com/Qipsius/QipsiusTCPDFBundle/issues) is a good place to start.
 If you're a first-time code contributor, you may find Github's guide to [forking projects](https://guides.github.com/activities/forking/) helpful.
 
-All contributors (whether contributing code, involved in issue discussions, or involved in any other way) must abide by our [code of conduct](https://github.com/whiteoctober/open-source-code-of-conduct/blob/master/code_of_conduct.md).
+All contributors (whether contributing code, involved in issue discussions, or involved in any other way) must abide by our [code of conduct](https://github.com/Qipsius/open-source-code-of-conduct/blob/master/code_of_conduct.md).

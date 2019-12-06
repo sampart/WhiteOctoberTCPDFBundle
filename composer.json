@@ -1,9 +1,9 @@
 {
-    "name": "whiteoctober/tcpdf-bundle",
+    "name": "qipsius/tcpdf-bundle",
     "type": "symfony-bundle",
-    "description": "A bundle to easily integrate TCPDF into Symfony2",
+    "description": "A bundle to easily integrate TCPDF into Symfony",
     "keywords": ["pdf", "tcpdf"],
-    "homepage": "https://github.com/whiteoctober/WhiteOctoberTCPDFBundle",
+    "homepage": "https://github.com/qipsius/QipsiusTCPDFBundle",
     "license": "MIT",
     "authors": [
         {
@@ -12,11 +12,11 @@
         }
     ],
     "require": {
-        "php": ">=5.3.2",
-        "symfony/framework-bundle": ">=2.0",
+        "php": ">=7.1",
+        "symfony/framework-bundle": "^3.4",
         "tecnickcom/tcpdf": "*"
     },
     "autoload": {
-        "psr-4": { "WhiteOctober\\TCPDFBundle\\": "" }
+        "psr-4": { "Qipsius\\TCPDFBundle\\": "" }
     }
 }

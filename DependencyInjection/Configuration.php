@@ -1,6 +1,6 @@
 <?php
 
-namespace WhiteOctober\TCPDFBundle\DependencyInjection;
+namespace Qipsius\TCPDFBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -11,16 +11,16 @@ class Configuration implements ConfigurationInterface
     /**
      * Builds our configuration
      *
-     * @return \Symfony\Component\Config\Definition\Builder\TreeBuilder
+     * @return TreeBuilder
      */
-    public function getConfigTreeBuilder()
+    public function getConfigTreeBuilder(): TreeBuilder
     {
-        $treeBuilder = new TreeBuilder('white_october_tcpdf');
+        $treeBuilder = new TreeBuilder('qipsius_tcpdf');
 
         if (method_exists($treeBuilder, 'getRootNode')) {
             $rootNode = $treeBuilder->getRootNode();
         } else {
-            $rootNode = $treeBuilder->root('white_october_tcpdf');
+            $rootNode = $treeBuilder->root('qipsius_tcpdf');
         }
 
         $rootNode
@@ -40,7 +40,7 @@ class Configuration implements ConfigurationInterface
      *
      * @param $rootNode
      */
-    protected function addTCPDFConfig(ArrayNodeDefinition $rootNode)
+    protected function addTCPDFConfig(ArrayNodeDefinition $rootNode): void
     {
         $rootNode
             ->children()
