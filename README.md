@@ -1,4 +1,4 @@
-_This project is looking for maintainers - [details here](https://github.com/whiteoctober/WhiteOctoberTCPDFBundle/issues/57)._
+_This project is not actively maintained. For Symfony 3.4 and above, you may wish to use [this fork](https://github.com/Qipsius/QipsiusTCPDFBundle)._
 
 WhiteOctoberTCPDFBundle
 =======================
@@ -28,7 +28,7 @@ composer show tecnickcom/tcpdf
 ```
 
 And amend your project's `composer.json` to add a TCPDF version constraint in the `requires` section.
-For example, if TCPDF version `6.2.17` was installed, `"tecnickcom/tcpdf": "^6.2.17"` will allow anything < 7 when upgrading. 
+For example, if TCPDF version `6.2.17` was installed, `"tecnickcom/tcpdf": "^6.2.17"` will allow anything < 7 when upgrading.
 
 ### Step 2: Enable the bundle in the kernel
 
@@ -73,7 +73,7 @@ services:
     # the `white_october.tcpdf` service will be injected when a
     # `WhiteOctober\TCPDFBundle\Controller\TCPDFController` type-hint is detected
     WhiteOctober\TCPDFBundle\Controller\TCPDFController: '@white_october.tcpdf'
-``` 
+```
 
 Using TCPDF
 -----------
@@ -110,7 +110,7 @@ If you want, you can use TCPDF's own defaults instead:
 ```yaml
 white_october_tcpdf:
     tcpdf:
-        k_tcpdf_external_config: false  # the values set by this bundle will be ignored 
+        k_tcpdf_external_config: false  # the values set by this bundle will be ignored
 ```
 
 ### Using a custom class
